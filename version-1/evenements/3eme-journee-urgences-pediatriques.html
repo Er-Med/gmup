@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3ème journée d'urgences pédiatriques | GMUP</title>
+    <meta
+      name="description"
+      content="3ème journée d'urgences pédiatriques — programme et inscription."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <header class="navbar" id="navbar">
+        <div class="container navbar__inner">
+          <a class="navbar__brand" href="../index.html">
+            <img src="../assets/logo.png" alt="Logo GMUP" width="42" height="42" />
+            <span>GMUP</span>
+          </a>
+
+          <nav class="navbar__links" aria-label="Navigation principale">
+            <a href="../index.html">Accueil</a>
+            <div class="navbar__dropdown">
+              <button
+                type="button"
+                class="navbar__dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="agenda-menu"
+                id="agenda-menu-button"
+                aria-current="page"
+              >
+                Agenda événements
+              </button>
+              <ul
+                class="navbar__dropdown-menu"
+                id="agenda-menu"
+                role="menu"
+                aria-labelledby="agenda-menu-button"
+              >
+                <li role="none">
+                  <a role="menuitem" href="2eme-journee-urgences-pediatriques.html">
+                    2<sup>ème</sup> journée d'urgences pédiatriques
+                  </a>
+                </li>
+                <li role="none">
+                  <a
+                    role="menuitem"
+                    href="3eme-journee-urgences-pediatriques.html"
+                    aria-current="page"
+                  >
+                    3<sup>ème</sup> journée d'urgences pédiatriques
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <a href="../blog.html">Blog</a>
+          </nav>
+
+          <button
+            class="navbar__toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            data-nav-toggle
+          >
+            <span class="navbar__toggle-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+
+        <nav class="navbar__mobile" id="mobile-menu" aria-label="Navigation mobile">
+          <a href="../index.html">Accueil</a>
+          <div class="navbar__mobile-group">
+            <span class="navbar__mobile-label">Agenda événements</span>
+            <a class="navbar__mobile-sub" href="2eme-journee-urgences-pediatriques.html">
+              2<sup>ème</sup> journée d'urgences pédiatriques
+            </a>
+            <a
+              class="navbar__mobile-sub"
+              href="3eme-journee-urgences-pediatriques.html"
+              aria-current="page"
+            >
+              3<sup>ème</sup> journée d'urgences pédiatriques
+            </a>
+          </div>
+          <a href="../blog.html">Blog</a>
+        </nav>
+      </header>
+
+      <main class="site__main">
+        <div class="event-banner">
+          <img
+            src="../assets/banner-web.jpg"
+            alt=""
+            width="1233"
+            height="250"
+          />
+        </div>
+
+        <div class="container event-detail">
+          <nav class="event-breadcrumb" aria-label="Fil d'Ariane">
+            <a href="../index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <span>3<sup>ème</sup> journée d'urgences pédiatriques</span>
+          </nav>
+
+          <header class="event-detail__header">
+            <span class="eyebrow">Événement</span>
+            <h1 class="event-detail__title">
+              3<sup>ème</sup> journée d'urgences pédiatriques
+            </h1>
+            <p class="event-detail__meta">25 octobre 2025 — Hôtel Barceló Anfa, Casablanca</p>
+          </header>
+
+          <div class="event-detail__grid">
+            <div class="event-detail__main">
+              <figure class="event-programme">
+                <img
+                  src="../assets/programme-3eme.jpg"
+                  alt="Programme — 3ème journée d'urgences pédiatriques"
+                  width="800"
+                  height="1100"
+                />
+              </figure>
+
+              <p class="event-download">
+                <a
+                  class="btn btn--outline"
+                  href="../assets/programme-3eme.jpg"
+                  download
+                >
+                  Cliquez ici pour télécharger le programme
+                </a>
+              </p>
+            </div>
+
+            <aside class="event-detail__aside" aria-labelledby="inscription-title">
+              <div class="event-form-card">
+                <h2 class="event-form-card__title" id="inscription-title">
+                  Inscription
+                </h2>
+
+                <form class="event-form" action="#" method="post" novalidate>
+                  <div class="event-form__field">
+                    <label for="your-name">Nom</label>
+                    <input id="your-name" name="your-name" type="text" autocomplete="family-name" required />
+                  </div>
+                  <div class="event-form__field">
+                    <label for="your-firstname">Prénom</label>
+                    <input id="your-firstname" name="your-firstname" type="text" autocomplete="given-name" required />
+                  </div>
+                  <div class="event-form__field">
+                    <label for="your-specialty">Spécialité</label>
+                    <input id="your-specialty" name="your-specialty" type="text" />
+                  </div>
+                  <div class="event-form__field">
+                    <label for="your-city">Ville</label>
+                    <input id="your-city" name="your-city" type="text" autocomplete="address-level2" />
+                  </div>
+                  <div class="event-form__field">
+                    <label for="your-email">Email</label>
+                    <input id="your-email" name="your-email" type="email" autocomplete="email" required />
+                  </div>
+                  <div class="event-form__field">
+                    <label for="your-ppr">PPR / INPE / Autre</label>
+                    <input id="your-ppr" name="your-ppr" type="text" />
+                  </div>
+
+                  <button class="btn btn--primary" type="submit">Envoyer</button>
+                </form>
+
+                <div class="event-organizer">
+                  <p><strong>Agence organisatrice, ARKAYN HEALTH</strong></p>
+                  <p>Tél: <a href="tel:+212665730530">(+212 6 65 73 05 30)</a></p>
+                  <p>
+                    <a href="mailto:chadia.haji@arkaynhealth.org"
+                      >chadia.haji@arkaynhealth.org</a
+                    >
+                  </p>
+                  <p>
+                    <a
+                      href="http://www.arkaynhealth.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >www.arkaynhealth.org</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <p class="event-back">
+            <a href="../index.html">← Retour à l'accueil</a>
+          </p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <a class="footer__brand" href="../index.html">
+            <img src="../assets/logo.png" alt="" width="36" height="36" />
+            <span>GMUP</span>
+          </a>
+          <div class="footer__meta">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebook</a
+            >
+            <span>© 2025 GMUP. Tous droits réservés.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

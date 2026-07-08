@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accueil | GMUP</title>
+    <meta
+      name="description"
+      content="Groupe Marocain des Urgences Pédiatriques — Mot du Président et Bureau."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <header class="navbar" id="navbar">
+        <div class="container navbar__inner">
+          <a class="navbar__brand" href="index.html">
+            <img src="assets/logo.png" alt="Logo GMUP" width="42" height="42" />
+            <span>GMUP</span>
+          </a>
+
+          <nav class="navbar__links" aria-label="Navigation principale">
+            <a href="index.html" aria-current="page">Accueil</a>
+            <div class="navbar__dropdown">
+              <button
+                type="button"
+                class="navbar__dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="agenda-menu"
+                id="agenda-menu-button"
+              >
+                Agenda événements
+              </button>
+              <ul
+                class="navbar__dropdown-menu"
+                id="agenda-menu"
+                role="menu"
+                aria-labelledby="agenda-menu-button"
+              >
+                <li role="none">
+                  <a
+                    role="menuitem"
+                    href="evenements/2eme-journee-urgences-pediatriques.html"
+                  >
+                    2<sup>ème</sup> journée d'urgences pédiatriques
+                  </a>
+                </li>
+                <li role="none">
+                  <a
+                    role="menuitem"
+                    href="evenements/3eme-journee-urgences-pediatriques.html"
+                  >
+                    3<sup>ème</sup> journée d'urgences pédiatriques
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <a href="blog.html">Blog</a>
+          </nav>
+
+          <button
+            class="navbar__toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            data-nav-toggle
+          >
+            <span class="navbar__toggle-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+
+        <nav class="navbar__mobile" id="mobile-menu" aria-label="Navigation mobile">
+          <a href="index.html" aria-current="page">Accueil</a>
+          <div class="navbar__mobile-group">
+            <span class="navbar__mobile-label">Agenda événements</span>
+            <a
+              class="navbar__mobile-sub"
+              href="evenements/2eme-journee-urgences-pediatriques.html"
+            >
+              2<sup>ème</sup> journée d'urgences pédiatriques
+            </a>
+            <a
+              class="navbar__mobile-sub"
+              href="evenements/3eme-journee-urgences-pediatriques.html"
+            >
+              3<sup>ème</sup> journée d'urgences pédiatriques
+            </a>
+          </div>
+          <a href="blog.html">Blog</a>
+        </nav>
+      </header>
+
+      <main class="site__main">
+        <!-- Hero — full-bleed, brand first -->
+        <section class="hero" aria-labelledby="hero-brand">
+          <div class="hero__media" aria-hidden="true">
+            <img
+              src="assets/banner-web.jpg"
+              alt=""
+              width="1233"
+              height="250"
+            />
+          </div>
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="container hero__content">
+            <p class="hero__brand" id="hero-brand">GMUP</p>
+            <h1 class="hero__title">
+              Groupe Marocain des Urgences&nbsp;Pédiatriques
+            </h1>
+            <p class="hero__lead">
+              Former, harmoniser et faire reconnaître la médecine d’urgence
+              pédiatrique au Maroc.
+            </p>
+            <a class="hero__cta" href="#president">Lire le mot de la Présidente</a>
+          </div>
+        </section>
+
+        <!-- Mot du Président — texte à gauche, identité à droite -->
+        <section class="letter" id="president" aria-labelledby="president-title">
+          <div class="container letter__grid">
+            <div class="letter__copy">
+              <span class="eyebrow">Présidence</span>
+              <h2 class="letter__title" id="president-title">Mot de la Présidente</h2>
+              <div class="letter__body">
+                <p>
+                  La médecine d'urgence en pédiatrie n'est pas encore reconnue comme
+                  sous-spécialité au Maroc, comme c'est le cas dans des pays
+                  anglophones et certains pays européens.
+                </p>
+                <p>
+                  Toutefois, certains Centres Hospitaliers Universitaires marocains,
+                  notamment les plus anciens, ont ressenti l'importance de la mise en
+                  place d'un
+                  <strong>Service d'Accueil des Urgences Pédiatriques (SAUP)</strong>
+                  avec une équipe aussi bien médicale que paramédicale dédiée uniquement
+                  à l'accueil et à la prise en charge des enfants consultants en
+                  urgence.
+                </p>
+                <p>
+                  Cette individualisation des locaux et du personnel pour les urgences
+                  pédiatriques ne s'est pas accompagnée par l'élaboration des normes
+                  concernant la définition des rôles (service des urgences et services
+                  d'hospitalisation), de l'architecture des locaux nécessaires, de
+                  l'organisation interne selon le niveau des soins demandés, ni de la
+                  définition des profils (médical et paramédical) qui devraient y
+                  travailler.
+                </p>
+                <p>
+                  Les pédiatres des urgences se sentent souvent dépassés et non
+                  valorisés, malgré les efforts énormes qu'ils fournissent ; seuls ceux
+                  qui y travaillent le savent. Il y a heureusement de jeunes médecins
+                  qui demandent à se former pour pouvoir identifier les vraies
+                  urgences, les prendre en charge rapidement et d'une façon adéquate.
+                </p>
+                <p>
+                  La création du
+                  <strong>Groupe Marocain des Urgences Pédiatriques (GMUP)</strong>
+                  est venue répondre essentiellement à ce besoin en formation, et vise à
+                  réunir les différents pédiatres et urgentistes qui s'occupent de la
+                  prise en charge des urgences pédiatriques. Cette action sera
+                  bénéfique grâce au partage des expériences, à l'harmonisation des
+                  protocoles et procédures de prise en charge, et à l'élaboration de
+                  référentiels nationaux avec les sociétés savantes et les instances
+                  responsables. Tout cela permettra certainement de valoriser
+                  l'activité des services des urgences, d'identifier les points de
+                  force et de faiblesse et d'améliorer la prise en charge des enfants
+                  malades dès leur arrivée dans un service d'urgences.
+                </p>
+                <p class="letter__signoff">
+                  Nous espérons, qu'avec l'effort de tous, faire reconnaître la
+                  médecine d'urgence en pédiatrie en tant que sous-spécialité
+                  pédiatrique et la rendre plus attractive.
+                </p>
+              </div>
+            </div>
+
+            <aside class="letter__aside">
+              <div class="letter__portrait" aria-hidden="true">WG</div>
+              <p class="letter__role">Présidente</p>
+              <p class="letter__name">Dr Widad Gueddari</p>
+              <p class="letter__aside-note">Présidente du Groupe Marocain des Urgences Pédiatriques</p>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Médias — affiche dominante, vidéo en bas -->
+        <section class="spotlight" aria-labelledby="spotlight-title">
+          <div class="container">
+            <header class="spotlight__header">
+              <span class="eyebrow">Rencontre</span>
+              <h2 class="spotlight__title" id="spotlight-title">
+                3ème Journée d’urgences pédiatriques
+              </h2>
+              <p class="spotlight__lead">
+                Affiche de l’édition 2025 et best-of de la journée SAUP Casablanca.
+              </p>
+            </header>
+
+            <div class="spotlight__stage">
+              <figure class="spotlight__affiche">
+                <img
+                  src="assets/affiche-3eme-journee.png"
+                  alt="Affiche — 3ème Journée d'urgences pédiatriques, 25 octobre 2025"
+                  width="800"
+                  height="1100"
+                />
+              </figure>
+
+              <div class="spotlight__video">
+                <video
+                  class="home-video"
+                  controls
+                  preload="metadata"
+                  width="660"
+                  height="315"
+                  poster="assets/banner-web.jpg"
+                >
+                  <source src="assets/best-of-jup.mp4" type="video/mp4" />
+                  Votre navigateur ne prend pas en charge la lecture vidéo.
+                </video>
+                <p class="home-video__caption">
+                  Best of — Journée d'urgences pédiatriques, SAUP Casablanca · Octobre 2023
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bureau — titre à gauche, liste à droite -->
+        <section class="bureau" id="bureau" aria-labelledby="bureau-title">
+          <div class="container bureau__layout">
+            <header class="bureau__header">
+              <span class="eyebrow">Gouvernance</span>
+              <h2 class="bureau__title" id="bureau-title">Le Bureau<br />du GMUP</h2>
+              <p class="bureau__lead">
+                L'équipe élue qui porte les décisions et les projets du groupe.
+              </p>
+            </header>
+
+            <div class="bureau__panel">
+              <ul class="bureau-list">
+                <li class="bureau-row">
+                  <span class="bureau-row__role">Présidente</span>
+                  <span class="bureau-row__name">W. Gueddari</span>
+                </li>
+                <li class="bureau-row">
+                  <span class="bureau-row__role">Vice-Présidente</span>
+                  <span class="bureau-row__name">N. Dini</span>
+                </li>
+                <li class="bureau-row">
+                  <span class="bureau-row__role">Secrétaire Générale</span>
+                  <span class="bureau-row__name">L. Karboubi</span>
+                </li>
+                <li class="bureau-row">
+                  <span class="bureau-row__role">Secrétaire Générale Adjointe</span>
+                  <span class="bureau-row__name">W. Kojmane</span>
+                </li>
+                <li class="bureau-row">
+                  <span class="bureau-row__role">Trésorier</span>
+                  <span class="bureau-row__name">N. Mekaoui</span>
+                </li>
+                <li class="bureau-row">
+                  <span class="bureau-row__role">Vice-Trésorier</span>
+                  <span class="bureau-row__name">W. Lahmini</span>
+                </li>
+              </ul>
+
+              <div class="bureau-advisors">
+                <h3 class="bureau-advisors__title">Conseillers</h3>
+                <p class="bureau__lead">
+                  M. Borrous · M. El-Bouz · Y. Jeddi · Fz. El Amrani Idrissi · N. Benbouziane
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <a class="footer__brand" href="index.html">
+            <img src="assets/logo.png" alt="" width="36" height="36" />
+            <span>GMUP</span>
+          </a>
+          <div class="footer__meta">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebook</a
+            >
+            <span>© 2025 GMUP. Tous droits réservés.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

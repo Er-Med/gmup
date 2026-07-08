@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog | GMUP</title>
+    <meta
+      name="description"
+      content="Blog du Groupe Marocain des Urgences Pédiatriques."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <header class="navbar" id="navbar">
+        <div class="container navbar__inner">
+          <a class="navbar__brand" href="index.html">
+            <img src="assets/logo.png" alt="Logo GMUP" width="42" height="42" />
+            <span>GMUP</span>
+          </a>
+
+          <nav class="navbar__links" aria-label="Navigation principale">
+            <a href="index.html">Accueil</a>
+            <div class="navbar__dropdown">
+              <button
+                type="button"
+                class="navbar__dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="agenda-menu"
+                id="agenda-menu-button"
+              >
+                Agenda événements
+              </button>
+              <ul
+                class="navbar__dropdown-menu"
+                id="agenda-menu"
+                role="menu"
+                aria-labelledby="agenda-menu-button"
+              >
+                <li role="none">
+                  <a
+                    role="menuitem"
+                    href="evenements/2eme-journee-urgences-pediatriques.html"
+                  >
+                    2<sup>ème</sup> journée d'urgences pédiatriques
+                  </a>
+                </li>
+                <li role="none">
+                  <a
+                    role="menuitem"
+                    href="evenements/3eme-journee-urgences-pediatriques.html"
+                  >
+                    3<sup>ème</sup> journée d'urgences pédiatriques
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <a href="blog.html" aria-current="page">Blog</a>
+          </nav>
+
+          <button
+            class="navbar__toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            data-nav-toggle
+          >
+            <span class="navbar__toggle-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+
+        <nav class="navbar__mobile" id="mobile-menu" aria-label="Navigation mobile">
+          <a href="index.html">Accueil</a>
+          <div class="navbar__mobile-group">
+            <span class="navbar__mobile-label">Agenda événements</span>
+            <a
+              class="navbar__mobile-sub"
+              href="evenements/2eme-journee-urgences-pediatriques.html"
+            >
+              2<sup>ème</sup> journée d'urgences pédiatriques
+            </a>
+            <a
+              class="navbar__mobile-sub"
+              href="evenements/3eme-journee-urgences-pediatriques.html"
+            >
+              3<sup>ème</sup> journée d'urgences pédiatriques
+            </a>
+          </div>
+          <a href="blog.html" aria-current="page">Blog</a>
+        </nav>
+      </header>
+
+      <main class="site__main">
+        <div class="page-band">
+          <div class="container">
+            <span class="eyebrow">Publications</span>
+            <h1 class="page-band__title">Blog</h1>
+            <p class="page-band__lead">
+              Actualités, recommandations et publications du groupe.
+            </p>
+          </div>
+        </div>
+
+        <section class="blog-section" aria-labelledby="blog-list-title">
+          <div class="container">
+            <h2 class="sr-only" id="blog-list-title">Articles</h2>
+
+            <div class="blog-stack">
+              <!-- Article 1 -->
+              <article class="blog-row">
+                <a href="#" class="blog-row__media" tabindex="-1" aria-hidden="true">
+                  <img
+                    src="assets/blog-placeholder.jpg"
+                    alt=""
+                    width="720"
+                    height="450"
+                  />
+                </a>
+                <div class="blog-row__content">
+                  <time class="blog-row__date" datetime="2025-03-12">12 mars 2025</time>
+                  <h3 class="blog-row__title">
+                    <a href="#">Triage pédiatrique : retour sur les recommandations nationales</a>
+                  </h3>
+                  <p class="blog-row__excerpt">
+                    Synthèse des échanges tenus lors de la dernière session du GMUP
+                    sur l'harmonisation des échelles de tri dans les services d'urgence
+                    pédiatriques marocains.
+                  </p>
+                  <a class="blog-row__link" href="#">
+                    Lire l’article <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Article 2 (alterné) -->
+              <article class="blog-row blog-row--reverse">
+                <a href="#" class="blog-row__media" tabindex="-1" aria-hidden="true">
+                  <img
+                    src="assets/blog-placeholder.jpg"
+                    alt=""
+                    width="720"
+                    height="450"
+                  />
+                </a>
+                <div class="blog-row__content">
+                  <time class="blog-row__date" datetime="2025-01-28">28 janvier 2025</time>
+                  <h3 class="blog-row__title">
+                    <a href="#">Intoxications pédiatriques : outils d'aide à la décision</a>
+                  </h3>
+                  <p class="blog-row__excerpt">
+                    Présentation des fiches pratiques élaborées par le groupe de travail
+                    toxicologie, destinées aux équipes des urgences pédiatriques.
+                  </p>
+                  <a class="blog-row__link" href="#">
+                    Lire l’article <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Article 3 -->
+              <article class="blog-row">
+                <a href="#" class="blog-row__media" tabindex="-1" aria-hidden="true">
+                  <img
+                    src="assets/blog-placeholder.jpg"
+                    alt=""
+                    width="720"
+                    height="450"
+                  />
+                </a>
+                <div class="blog-row__content">
+                  <time class="blog-row__date" datetime="2024-11-05">5 novembre 2024</time>
+                  <h3 class="blog-row__title">
+                    <a href="#">Compte rendu de la 2ème journée d'urgences pédiatriques</a>
+                  </h3>
+                  <p class="blog-row__excerpt">
+                    Retour sur les conférences et ateliers de la journée scientifique :
+                    réanimation, voies aériennes et gestion des flux aux urgences
+                    pédiatriques.
+                  </p>
+                  <a class="blog-row__link" href="#">
+                    Lire l’article <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <a class="footer__brand" href="index.html">
+            <img src="assets/logo.png" alt="" width="36" height="36" />
+            <span>GMUP</span>
+          </a>
+          <div class="footer__meta">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebook</a
+            >
+            <span>© 2025 GMUP. Tous droits réservés.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
