@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   description: SITE.description,
 };
 
-export default function V1Layout({ children }: { children: React.ReactNode }) {
+export default function V1Layout({ children }: { children: React.ReactNode; }) {
   return (
     <div
       className={cn(
-        "v1-page-bg [--container-max:1100px] [--nav-bg:#0D4EA6] [--nav-text:#ffffff] font-body text-gmup-text antialiased",
+        "hidden v1-page-bg [--container-max:1100px] [--nav-bg:#0D4EA6] [--nav-text:#ffffff] font-body text-gmup-text antialiased",
         typography.body,
       )}
     >
