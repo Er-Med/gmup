@@ -1,5 +1,7 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
+import { useLenis } from "lenis/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,9 +24,13 @@ const linkBase =
 const activeUnderline =
   "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:bg-gmup-teal after:opacity-100";
 
+const HIDE_AT = 72;
+const SHOW_AT = 16;
+
 export function Navbar({ variant }: NavbarProps) {
   const pathname = usePathname();
   const nav = buildNav(variant, pathname);
+  const prefersReducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [logoHidden, setLogoHidden] = useState(false);
@@ -46,9 +52,21 @@ export function Navbar({ variant }: NavbarProps) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  function updateLogoVisibility(scrollY: number) {
+    setLogoHidden((hidden) => {
+      if (!hidden && scrollY > HIDE_AT) return true;
+      if (hidden && scrollY < SHOW_AT) return false;
+      return hidden;
+    });
+  }
+
+  useLenis((lenis) => {
+    updateLogoVisibility(lenis.scroll);
+  });
+
   useEffect(() => {
     function onScroll() {
-      setLogoHidden(window.scrollY > 40);
+      updateLogoVisibility(window.scrollY);
     }
 
     onScroll();
@@ -63,11 +81,19 @@ export function Navbar({ variant }: NavbarProps) {
         open && "is-open",
       )}
     >
-      <div
-        className={cn(
-          "overflow-hidden bg-white transition-[max-height,opacity] duration-300 ease-out",
-          logoHidden ? "max-h-0 opacity-0" : "max-h-48 opacity-100",
-        )}
+      <motion.div
+        initial={false}
+        animate={
+          logoHidden
+            ? { height: 0, opacity: 0 }
+            : { height: "auto", opacity: 1 }
+        }
+        transition={
+          prefersReducedMotion
+            ? { duration: 0 }
+            : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
+        }
+        className="overflow-hidden bg-white"
         aria-hidden={logoHidden}
       >
         <Container className="flex items-center justify-center py-4 md:py-5">
@@ -86,7 +112,7 @@ export function Navbar({ variant }: NavbarProps) {
             />
           </Link>
         </Container>
-      </div>
+      </motion.div>
 
       <Container className="relative flex min-h-[4.5rem] items-center justify-between gap-6 md:min-h-[5rem]">
         <Link
