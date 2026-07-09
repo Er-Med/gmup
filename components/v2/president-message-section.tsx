@@ -36,7 +36,7 @@ export function V2PresidentMessageSection() {
     >
       <Container className="relative">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1.35fr)_minmax(260px,0.65fr)] lg:items-start lg:gap-20 xl:gap-24">
-          <Reveal as="article" className="min-w-0">
+          <Reveal as="article" direction="left" className="min-w-0">
             <h2 className={typography.h2} id="president-title">
               {PRESIDENT_MESSAGE.label}
             </h2>
@@ -48,14 +48,19 @@ export function V2PresidentMessageSection() {
 
             <div className={cn("mt-10", typography.bodyLg, typography.prose, typography.proseStack)}>
               {paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-justify">
-                  {paragraph}
-                </p>
+                <Reveal key={index} delay={0.06 + index * 0.06} direction="up">
+                  <p className="text-justify">{paragraph}</p>
+                </Reveal>
               ))}
             </div>
           </Reveal>
 
-          <aside className="flex flex-col items-center gap-5 lg:sticky lg:top-40 lg:self-start lg:items-start">
+          <Reveal
+            delay={0.12}
+            direction="right"
+            as="aside"
+            className="flex flex-col items-center gap-5 lg:sticky lg:top-40 lg:self-start lg:items-start"
+          >
             <PresidentPortrait />
 
             <div className="w-full max-w-[280px] text-center lg:max-w-none lg:text-left">
@@ -65,7 +70,7 @@ export function V2PresidentMessageSection() {
                 {president.note}
               </p>
             </div>
-          </aside>
+          </Reveal>
         </div>
       </Container>
     </section>

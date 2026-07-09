@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { SiteShell } from "@/components/layout";
+import { LenisProvider } from "@/providers/lenis-provider";
 import { MotionProvider } from "@/providers/motion-provider";
 import { typography } from "@/lib/typography";
 import { SITE } from "@/lib/content";
@@ -22,9 +23,11 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
         typography.body,
       )}
     >
-      <MotionProvider>
-        <SiteShell variant="v2">{children}</SiteShell>
-      </MotionProvider>
+      <LenisProvider>
+        <MotionProvider>
+          <SiteShell variant="v2">{children}</SiteShell>
+        </MotionProvider>
+      </LenisProvider>
     </div>
   );
 }

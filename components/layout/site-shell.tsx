@@ -52,7 +52,7 @@ export function Footer({ variant }: FooterProps) {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:justify-end">
           <SocialLinks />
           <p className={cn(typography.small, "text-[0.75rem] text-white/70")}>
-            © 2025 GMUP. Tous droits réservés.
+            © 2026 GMUP. Tous droits réservés.
           </p>
         </div>
       </Container>
