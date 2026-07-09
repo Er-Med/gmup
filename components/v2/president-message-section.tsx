@@ -48,7 +48,7 @@ export function V2PresidentMessageSection() {
 
             <div
               className={cn(
-                "mt-10 text-[1.0625rem] leading-[1.75] md:text-lg md:leading-[1.7]",
+                "mt-10 text-[0.9375rem] leading-[1.7] sm:text-[1.0625rem] sm:leading-[1.75] md:text-lg md:leading-[1.7]",
                 typography.prose,
                 typography.proseStack,
               )}

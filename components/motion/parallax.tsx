@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
+import { useIsMobile } from "@/hooks";
 import { cn } from "@/utils/cn";
 
 type ParallaxProps = {
@@ -27,7 +28,10 @@ export function Parallax({
   fade = false,
 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const prefersReducedMotion = useReducedMotion();
+  const disableMotion = prefersReducedMotion || isMobile;
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -36,13 +40,17 @@ export function Parallax({
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    prefersReducedMotion ? [0, 0] : [offset, -offset],
+    disableMotion ? [0, 0] : [offset, -offset],
   );
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
-    prefersReducedMotion || !fade ? [1, 1, 1, 1] : [0.55, 1, 1, 0.55],
+    disableMotion || !fade ? [1, 1, 1, 1] : [0.55, 1, 1, 0.55],
   );
+
+  if (disableMotion) {
+    return <div className={cn(className)}>{children}</div>;
+  }
 
   return (
     <div ref={ref} className={cn(className)}>

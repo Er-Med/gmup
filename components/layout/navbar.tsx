@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { SocialLinks } from "@/components/layout/social-icons";
+import { useIsMobile } from "@/hooks";
 import { SITE, type SiteVariant } from "@/lib/content";
 import { buildNav } from "@/lib/navigation";
 import { typography } from "@/lib/typography";
@@ -31,6 +32,7 @@ export function Navbar({ variant }: NavbarProps) {
   const pathname = usePathname();
   const nav = buildNav(variant, pathname);
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [logoHidden, setLogoHidden] = useState(false);
@@ -91,7 +93,10 @@ export function Navbar({ variant }: NavbarProps) {
         transition={
           prefersReducedMotion
             ? { duration: 0 }
-            : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
+            : {
+                duration: isMobile ? 0.25 : 0.45,
+                ease: [0.22, 1, 0.36, 1],
+              }
         }
         className="overflow-hidden bg-white"
         aria-hidden={logoHidden}

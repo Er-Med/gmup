@@ -1,8 +1,9 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
+import { useIsMobile } from "@/hooks";
 import { cn } from "@/utils/cn";
 
 type RevealProps = {
@@ -32,7 +33,17 @@ export function Reveal({
   once = true,
 }: RevealProps) {
   const Component = motion[as];
-  const offset = directionOffset[direction];
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    const Tag = as;
+    return <Tag className={cn(className)}>{children}</Tag>;
+  }
+
+  const offset = isMobile
+    ? { x: 0, y: 16 }
+    : directionOffset[direction];
 
   const variants: Variants = {
     hidden: { opacity: 0, ...offset },
@@ -44,8 +55,12 @@ export function Reveal({
       className={cn(className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.2, margin: "0px 0px -12% 0px" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      viewport={{ once, amount: isMobile ? 0.12 : 0.2, margin: "0px 0px -8% 0px" }}
+      transition={{
+        duration: isMobile ? 0.35 : 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: isMobile ? Math.min(delay, 0.08) : delay,
+      }}
       variants={variants}
     >
       {children}

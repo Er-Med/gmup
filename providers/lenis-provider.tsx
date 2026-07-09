@@ -4,7 +4,7 @@ import { cancelFrame, frame } from "framer-motion";
 import { ReactLenis, type LenisRef } from "lenis/react";
 import { useEffect, useRef, type ReactNode } from "react";
 
-import { useReducedMotion } from "@/hooks";
+import { useIsMobile, useReducedMotion } from "@/hooks";
 
 import "lenis/dist/lenis.css";
 
@@ -14,10 +14,12 @@ type LenisProviderProps = {
 
 export function LenisProvider({ children }: LenisProviderProps) {
   const reducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
   const lenisRef = useRef<LenisRef>(null);
+  const disabled = reducedMotion || isMobile;
 
   useEffect(() => {
-    if (reducedMotion) return;
+    if (disabled) return;
 
     function update({ timestamp }: { timestamp: number }) {
       lenisRef.current?.lenis?.raf(timestamp);
@@ -25,9 +27,9 @@ export function LenisProvider({ children }: LenisProviderProps) {
 
     frame.update(update, true);
     return () => cancelFrame(update);
-  }, [reducedMotion]);
+  }, [disabled]);
 
-  if (reducedMotion) {
+  if (disabled) {
     return children;
   }
 

@@ -85,15 +85,32 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Justified French prose — hyphenation reduces large word gaps on narrow screens */
+  /* Justified French prose — tighter on mobile to reduce large word gaps */
   .prose-justify {
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    overflow-wrap: break-word;
+    hyphenate-limit-chars: 5 2 2;
+    overflow-wrap: anywhere;
     word-break: normal;
+  }
+
+  @media (max-width: 767px) {
+    .prose-justify {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      word-spacing: -0.06em;
+      letter-spacing: -0.015em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .prose-justify {
+      overflow-wrap: break-word;
+      word-spacing: normal;
+      letter-spacing: inherit;
+    }
   }
 }
