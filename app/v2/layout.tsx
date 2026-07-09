@@ -19,7 +19,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        "v2-page-bg [--container-max:1180px] [--nav-bg:#1a4a8c] [--nav-text:#ffffff] font-sans text-body antialiased",
+        "v2-page-bg [--container-max:1180px] [--nav-bg:#1e3259] [--nav-text:#ffffff] font-sans text-body antialiased",
         typography.body,
       )}
     >

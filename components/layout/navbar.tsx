@@ -22,49 +22,12 @@ const linkBase =
 const activeUnderline =
   "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:bg-gmup-teal after:opacity-100";
 
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      aria-hidden
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-      />
-    </svg>
-  );
-}
-
-function MailIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      aria-hidden
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-      />
-    </svg>
-  );
-}
-
 export function Navbar({ variant }: NavbarProps) {
   const pathname = usePathname();
   const nav = buildNav(variant, pathname);
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [logoHidden, setLogoHidden] = useState(false);
 
   useEffect(() => {
     setOpen(false);
@@ -83,6 +46,16 @@ export function Navbar({ variant }: NavbarProps) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  useEffect(() => {
+    function onScroll() {
+      setLogoHidden(window.scrollY > 40);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <header
       className={cn(
@@ -90,58 +63,56 @@ export function Navbar({ variant }: NavbarProps) {
         open && "is-open",
       )}
     >
-      <div className="border-b border-white/10">
-        <Container className="flex min-h-10 items-center justify-between gap-4 py-2 text-[0.8125rem] text-white/90">
-          <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
-            <a
-              href={`tel:${SITE.organizer.phone}`}
-              className="inline-flex items-center gap-2 transition-colors hover:text-white"
-            >
-              <PhoneIcon className="size-3.5 shrink-0 opacity-90" />
-              <span className="truncate">{SITE.organizer.phoneDisplay}</span>
-            </a>
-            <span className="hidden h-3.5 w-px bg-white/30 sm:block" aria-hidden />
-            <a
-              href={`mailto:${SITE.organizer.email}`}
-              className="inline-flex min-w-0 items-center gap-2 transition-colors hover:text-white"
-            >
-              <MailIcon className="size-3.5 shrink-0 opacity-90" />
-              <span className="truncate">{SITE.organizer.email}</span>
-            </a>
-          </div>
-
-          <SocialLinks />
+      <div
+        className={cn(
+          "overflow-hidden bg-white transition-[max-height,opacity] duration-300 ease-out",
+          logoHidden ? "max-h-0 opacity-0" : "max-h-48 opacity-100",
+        )}
+        aria-hidden={logoHidden}
+      >
+        <Container className="flex items-center justify-center py-4 md:py-5">
+          <Link
+            href={nav.home}
+            tabIndex={logoHidden ? -1 : undefined}
+            className="transition-opacity duration-200 hover:opacity-90"
+          >
+            <Image
+              src="/logo-ar-fr.svg"
+              alt="Logo GMUP — Groupe Marocain des Urgences Pédiatriques"
+              width={420}
+              height={186}
+              className="h-24 w-auto object-contain sm:h-28 md:h-32 lg:h-36"
+              priority
+            />
+          </Link>
         </Container>
       </div>
 
-      <Container className="flex min-h-[4.75rem] items-center justify-between gap-6 md:min-h-[5.25rem]">
+      <Container className="relative flex min-h-[4.5rem] items-center justify-between gap-6 md:min-h-[5rem]">
         <Link
           href={nav.home}
-          className="flex min-w-0 items-center gap-3 transition-opacity duration-200 hover:opacity-90"
+          className="relative z-10 flex shrink-0 items-center gap-2.5 transition-opacity duration-200 hover:opacity-90"
         >
           <Image
-            src={variant === "v2" ? "/short-logo.svg" : "/logo.svg"}
-            alt="Logo GMUP"
-            width={variant === "v2" ? 72 : 48}
-            height={variant === "v2" ? 72 : 48}
-            className={cn(
-              "w-auto shrink-0 object-contain",
-              variant === "v2" ? "h-16 rounded-none md:h-[4.5rem]" : "h-11 rounded-lg bg-white",
-            )}
-            priority
+            src="/short-logo.svg"
+            alt=""
+            width={72}
+            height={72}
+            className="h-12 w-auto object-contain md:h-14"
+            aria-hidden
           />
-          <span className="min-w-0 leading-tight">
-            <span className={cn(typography.nav, "block text-[1.35rem] font-bold tracking-[0.04em] text-white")}>
-              {SITE.name}
-            </span>
-            <span className="mt-0.5 hidden max-w-[14rem] text-[0.625rem] leading-snug font-medium tracking-[0.04em] text-white/75 uppercase sm:block md:max-w-[18rem] md:text-[0.68rem]">
-              {SITE.fullName}
-            </span>
+          <span
+            className={cn(
+              typography.nav,
+              "text-[1.375rem] font-bold tracking-[0.04em] text-white md:text-[1.5rem]",
+            )}
+          >
+            {SITE.name}
           </span>
         </Link>
 
         <nav
-          className="hidden items-center gap-8 lg:gap-10 md:flex"
+          className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:gap-10 md:flex"
           aria-label="Navigation principale"
         >
           <Link
@@ -216,9 +187,11 @@ export function Navbar({ variant }: NavbarProps) {
           </Link>
         </nav>
 
+        <SocialLinks className="relative z-10 ml-auto hidden md:flex" />
+
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors duration-200 hover:bg-white/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 md:hidden"
+          className="relative z-10 ml-auto inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors duration-200 hover:bg-white/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 md:hidden"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
@@ -282,6 +255,9 @@ export function Navbar({ variant }: NavbarProps) {
         >
           Blog
         </Link>
+        <div className="border-t border-white/10 px-5 py-4">
+          <SocialLinks />
+        </div>
       </nav>
     </header>
   );

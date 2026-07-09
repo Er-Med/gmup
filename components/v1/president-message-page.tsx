@@ -41,7 +41,7 @@ export function PresidentMessagePageContent() {
             )}
           >
             {paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-justify leading-relaxed">
+              <p key={index} className="prose-justify leading-relaxed" lang="fr">
                 {paragraph}
               </p>
             ))}

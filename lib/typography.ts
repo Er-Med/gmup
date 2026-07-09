@@ -40,7 +40,7 @@ export const typography = {
    * Measure tuned to approximate Word wrapping (~10–13 words/line).
    */
   letter:
-    "max-w-[700px] font-calibri text-[1.0625rem] font-normal leading-[1.8] tracking-[0.01em] text-body text-justify [text-wrap:wrap] [overflow-wrap:break-word] [word-break:normal] [hyphens:none]",
+    "max-w-[700px] font-calibri text-[1rem] md:text-[1.0625rem] font-normal leading-[1.75] md:leading-[1.8] tracking-[0.01em] text-body prose-justify",
   letterStack: "flex flex-col gap-8",
   list: "flex flex-col gap-3",
 } as const;

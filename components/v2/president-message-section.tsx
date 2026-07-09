@@ -30,7 +30,7 @@ export function V2PresidentMessageSection() {
 
   return (
     <section
-      className="relative border-b border-gmup-navy/8 py-24 lg:py-28"
+      className="relative border-b border-gmup-navy/8 pt-10 pb-24 md:pt-12 lg:pt-14 lg:pb-28"
       id="president"
       aria-labelledby="president-title"
     >
@@ -46,10 +46,18 @@ export function V2PresidentMessageSection() {
               aria-hidden
             />
 
-            <div className={cn("mt-10", typography.bodyLg, typography.prose, typography.proseStack)}>
+            <div
+              className={cn(
+                "mt-10 text-[1.0625rem] leading-[1.75] md:text-lg md:leading-[1.7]",
+                typography.prose,
+                typography.proseStack,
+              )}
+            >
               {paragraphs.map((paragraph, index) => (
                 <Reveal key={index} delay={0.06 + index * 0.06} direction="up">
-                  <p className="text-justify">{paragraph}</p>
+                  <p className="prose-justify" lang="fr">
+                    {paragraph}
+                  </p>
                 </Reveal>
               ))}
             </div>

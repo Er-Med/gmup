@@ -49,11 +49,28 @@ export function Footer({ variant }: FooterProps) {
           </span>
         </Link>
 
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:justify-end">
-          <SocialLinks />
-          <p className={cn(typography.small, "text-[0.75rem] text-white/70")}>
-            © 2026 GMUP. Tous droits réservés.
-          </p>
+        <div className="flex flex-col gap-3 sm:items-end">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.8125rem] text-white/90 sm:justify-end">
+            <a
+              href={`tel:${SITE.organizer.phone}`}
+              className="transition-colors hover:text-white"
+            >
+              {SITE.organizer.phoneDisplay}
+            </a>
+            <span className="hidden h-3.5 w-px bg-white/30 sm:block" aria-hidden />
+            <a
+              href={`mailto:${SITE.organizer.email}`}
+              className="min-w-0 truncate transition-colors hover:text-white"
+            >
+              {SITE.organizer.email}
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:justify-end">
+            <SocialLinks />
+            <p className={cn(typography.small, "text-[0.75rem] text-white/70")}>
+              © 2026 GMUP. Tous droits réservés.
+            </p>
+          </div>
         </div>
       </Container>
     </footer>

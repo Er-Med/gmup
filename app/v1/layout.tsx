@@ -18,7 +18,7 @@ export default function V1Layout({ children }: { children: React.ReactNode; }) {
   return (
     <div
       className={cn(
-        "hidden v1-page-bg [--container-max:1100px] [--nav-bg:#0a1d43] [--nav-text:#ffffff] font-body text-gmup-text antialiased",
+        "hidden v1-page-bg [--container-max:1100px] [--nav-bg:#1e3259] [--nav-text:#ffffff] font-body text-gmup-text antialiased",
         typography.body,
       )}
     >

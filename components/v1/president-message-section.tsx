@@ -69,7 +69,7 @@ export function PresidentMessageSection() {
                     className={cn("mt-8", typography.letter, typography.letterStack)}
                   >
                     {paragraphs.map((paragraph, index) => (
-                      <p key={index} className="text-justify leading-relaxed">
+                      <p key={index} className="prose-justify leading-relaxed" lang="fr">
                         {paragraph}
                       </p>
                     ))}
