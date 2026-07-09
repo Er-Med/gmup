@@ -21,6 +21,7 @@
   --color-muted: #94a3b8;
 
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-calibri: Calibri, var(--font-carlito), "Segoe UI", sans-serif;
   --font-serif: var(--font-ibm-plex-serif), "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
@@ -47,6 +48,11 @@
   .v1-page-bg::before {
     background-image: url("/gmup-v1-bg.png");
     opacity: 1;
+  }
+
+  .v2-page-bg::before {
+    background-image: url("/gmup-v2-bg.png");
+    opacity: 0.2;
   }
 
   .v1-page-bg > *,

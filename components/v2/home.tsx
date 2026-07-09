@@ -1,144 +1,55 @@
+import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
-
 import { PageHero } from "@/components/layout/page-hero";
-
-import { Reveal } from "@/components/motion/reveal";
-
 import { V2PresidentMessageSection } from "@/components/v2/president-message-section";
-
-import { V2RencontreSection } from "@/components/v2/rencontre-section";
-
-import { ADVISORS, BUREAU_MEMBERS } from "@/lib/content";
-
 import { typography } from "@/lib/typography";
-
 import { cn } from "@/utils/cn";
 
-
-
 function Eyebrow({ children }: { children: React.ReactNode }) {
-
   return (
-
     <span className={cn("mb-3.5 inline-block", typography.eyebrow)}>
-
       {children}
-
     </span>
-
   );
-
 }
 
-
-
 export function V2Home() {
-
   return (
-
     <>
-
       <PageHero
-
-        alt="Bannière — Journée d'urgences pédiatriques GMUP"
-
+        src="/banner-v2.webp"
+        alt="Bannière — 4ème Congrès des urgences pédiatriques GMUP"
         priority
-
+        flush
       />
-
-
 
       <V2PresidentMessageSection />
 
-
-
-      <V2RencontreSection />
-
-
-
-      <section
-
-        className="py-20"
-
-        id="bureau"
-
-        aria-labelledby="bureau-title"
-
-      >
-
-        <Container className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
-
-          <header className="max-w-sm lg:sticky lg:top-24">
-
+      <section className="py-20" id="bureau" aria-labelledby="bureau-title">
+        <Container>
+          <header className="mx-auto mb-10 max-w-2xl text-center">
             <Eyebrow>Gouvernance</Eyebrow>
-
             <h2 className={typography.h2} id="bureau-title">
-
-              Le Bureau
-
-              <br />
-
-              du GMUP
-
+              Le Bureau du GMUP
             </h2>
-
             <p className={cn("mt-4", typography.bodyLg, typography.prose)}>
-
               L&apos;équipe élue qui porte les décisions et les projets du groupe.
-
             </p>
-
           </header>
 
-
-
-          <div>
-
-            <ul className={cn("border-t border-gmup-teal/20", typography.list)}>
-
-              {BUREAU_MEMBERS.map((member, index) => (
-
-                <Reveal
-
-                  key={member.name}
-
-                  delay={index * 0.04}
-
-                  as="li"
-
-                  className="grid items-baseline gap-1 border-b border-gmup-teal/20 py-5.5 sm:grid-cols-[0.45fr_1fr] sm:gap-8"
-
-                >
-
-                  <span className={typography.eyebrow}>{member.role}</span>
-
-                  <span className={typography.name}>{member.name}</span>
-
-                </Reveal>
-
-              ))}
-
-            </ul>
-
-
-
-            <div className="mt-10 border-t border-gmup-teal/20 pt-8">
-
-              <h3 className={cn("mb-4", typography.eyebrow)}>Conseillers</h3>
-
-              <p className={cn(typography.bodyLg, typography.prose)}>{ADVISORS}</p>
-
-            </div>
-
+          <div className="overflow-hidden bg-transparent">
+            <Image
+              src="/bureau.webp"
+              alt="Organigramme du Bureau du GMUP"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 1100px"
+              className="h-auto w-full bg-transparent object-contain"
+            />
           </div>
-
         </Container>
-
       </section>
-
     </>
-
   );
-
 }
-

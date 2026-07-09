@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import { Container } from "@/components/layout/container";
 import { Navbar } from "@/components/layout/navbar";
+import { SocialLinks } from "@/components/layout/social-icons";
 import { V2Navbar } from "@/components/v2/navbar";
 import { SITE, homePath, type SiteVariant } from "@/lib/content";
 import { typography } from "@/lib/typography";
@@ -17,44 +18,42 @@ export function Footer({ variant }: FooterProps) {
   const isV2 = variant === "v2";
 
   return (
-    <footer
-      className={cn(
-        "mt-auto border-t py-12",
-        isV2
-          ? "border-transparent bg-gmup-navy text-white/70"
-          : "border-[#E6EEF5] bg-white/75 text-secondary backdrop-blur-sm",
-      )}
-    >
-      <Container className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="mt-auto bg-[var(--nav-bg)] text-[var(--nav-text)]">
+      <Container className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-5">
         <Link
           href={homePath(variant)}
-          className={cn(
-            "flex items-center gap-2.5 tracking-[-0.01em] transition-opacity duration-200 hover:opacity-80",
-            isV2 ? cn(typography.nav, "font-semibold text-white") : cn(typography.nav, "font-semibold text-heading"),
-          )}
+          className="flex min-w-0 items-center gap-2.5 transition-opacity duration-200 hover:opacity-90"
         >
           <Image
-            src="/logo.png"
-            alt=""
-            width={36}
-            height={36}
-            className={cn("h-auto w-auto rounded-md", isV2 && "bg-white")}
-          />
-          <span>GMUP</span>
-        </Link>
-        <div className={cn("flex flex-wrap items-center gap-4 sm:gap-6", isV2 ? typography.small : typography.small)}>
-          <a
-            href={SITE.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
+            src={isV2 ? "/short-logo.svg" : "/logo.svg"}
+            alt="Logo GMUP"
+            width={isV2 ? 40 : 32}
+            height={isV2 ? 40 : 32}
             className={cn(
-              "transition-colors duration-200 hover:underline",
-              isV2 ? cn(typography.nav, "text-white") : cn(typography.nav, "text-gmup-navy hover:text-gmup-teal"),
+              "w-auto shrink-0 object-contain",
+              isV2 ? "h-9 rounded-none" : "h-8 rounded-md bg-white",
             )}
-          >
-            Facebook
-          </a>
-          <span className={isV2 ? "text-muted" : "text-muted"}>© 2025 GMUP. Tous droits réservés.</span>
+          />
+          <span className="min-w-0 leading-tight">
+            <span
+              className={cn(
+                typography.nav,
+                "block text-[1rem] font-bold tracking-[0.04em] text-white",
+              )}
+            >
+              {SITE.name}
+            </span>
+            <span className="mt-0.5 block max-w-[16rem] text-[0.5625rem] leading-snug font-medium tracking-[0.04em] text-white/75 uppercase md:max-w-[20rem]">
+              {SITE.fullName}
+            </span>
+          </span>
+        </Link>
+
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:justify-end">
+          <SocialLinks />
+          <p className={cn(typography.small, "text-[0.75rem] text-white/70")}>
+            © 2025 GMUP. Tous droits réservés.
+          </p>
         </div>
       </Container>
     </footer>

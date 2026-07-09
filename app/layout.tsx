@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { SITE } from "@/lib/content";
-import { ibmPlexSerif, inter, plusJakartaSans } from "@/lib/fonts";
+import { carlito, ibmPlexSerif, inter, plusJakartaSans } from "@/lib/fonts";
 import { cn } from "@/utils/cn";
 
 import "./globals.css";
@@ -24,6 +24,7 @@ export default function RootLayout({
         plusJakartaSans.variable,
         ibmPlexSerif.variable,
         inter.variable,
+        carlito.variable,
       )}
     >
       <body className={cn("min-h-full font-sans antialiased", plusJakartaSans.className)}>

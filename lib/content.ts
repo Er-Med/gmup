@@ -32,6 +32,8 @@ export const SITE = {
     "Groupe Marocain des Urgences Pédiatriques — Mot du Président et Bureau.",
   locale: "fr",
   facebook: "https://www.facebook.com/",
+  linkedin: "https://www.linkedin.com/",
+  instagram: "https://www.instagram.com/",
   organizer: {
     name: "Agence organisatrice, ARKAYN HEALTH",
     phone: "+212665730530",
@@ -58,14 +60,12 @@ export const PRESIDENT_MESSAGE = {
 
 export const PRESIDENT_LETTER = {
   paragraphs: [
-    "La médecine d'urgence en pédiatrie n'est pas encore reconnue comme sous-spécialité au Maroc, comme c'est le cas dans des pays anglophones et certains pays européens.",
-    "Toutefois, certains Centres Hospitaliers Universitaires marocains, notamment les plus anciens, ont ressenti l'importance de la mise en place d'un Service d'Accueil des Urgences Pédiatriques (SAUP) avec une équipe aussi bien médicale que paramédicale dédiée uniquement à l'accueil et à la prise en charge des enfants consultants en urgence.",
+    "La médecine d'urgence en pédiatrie n'est pas encore reconnue comme sous-spécialité au Maroc, comme c'est le cas dans des pays anglophones et certains pays européens. Toutefois, certains Centres Hospitaliers Universitaires marocains, notamment les plus anciens, ont ressenti l'importance de la mise en place d'un Service d'Accueil des Urgences Pédiatriques (SAUP) avec une équipe aussi bien médicale que paramédicale dédiée uniquement à l'accueil et à la prise en charge des enfants consultants en urgence.",
     "Cette individualisation des locaux et du personnel pour les urgences pédiatriques ne s'est pas accompagnée par l'élaboration des normes concernant la définition des rôles (service des urgences et services d'hospitalisation), de l'architecture des locaux nécessaires, de l'organisation interne selon le niveau des soins demandés, ni de la définition des profils (médical et paramédical) qui devraient y travailler.",
     "Les pédiatres des urgences se sentent souvent dépassés et non valorisés, malgré les efforts énormes qu'ils fournissent ; seuls ceux qui y travaillent le savent. Il y a heureusement de jeunes médecins qui demandent à se former pour pouvoir identifier les vraies urgences, les prendre en charge rapidement et d'une façon adéquate.",
     "La création du Groupe Marocain des Urgences Pédiatriques (GMUP) est venue répondre essentiellement à ce besoin en formation, et vise à réunir les différents pédiatres et urgentistes qui s'occupent de la prise en charge des urgences pédiatriques. Cette action sera bénéfique grâce au partage des expériences, à l'harmonisation des protocoles et procédures de prise en charge, et à l'élaboration de référentiels nationaux avec les sociétés savantes et les instances responsables. Tout cela permettra certainement de valoriser l'activité des services des urgences, d'identifier les points de force et de faiblesse et d'améliorer la prise en charge des enfants malades dès leur arrivée dans un service d'urgences.",
-  ],
-  signoff:
     "Nous espérons, qu'avec l'effort de tous, faire reconnaître la médecine d'urgence en pédiatrie en tant que sous-spécialité pédiatrique et la rendre plus attractive.",
+  ],
   president: {
     initials: "WG",
     role: "Présidente",
@@ -85,49 +85,6 @@ export const BUREAU_MEMBERS: BureauMember[] = [
 
 export const ADVISORS =
   "M. Borrous · M. El-Bouz · Y. Jeddi · Fz. El Amrani Idrissi · N. Benbouziane";
-
-export type RencontreSpotlightVideo = {
-  title: string;
-  caption: string;
-  thumbnail: string;
-  /** Local fallback when no YouTube ID is set. */
-  mp4Src?: string;
-  /** YouTube video ID — opens in the modal when set (takes priority over mp4Src). */
-  youtubeId?: string;
-};
-
-export type RencontreSpotlight = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  poster: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
-  video: RencontreSpotlightVideo;
-};
-
-export const RENCONTRE_SPOTLIGHT: RencontreSpotlight = {
-  eyebrow: "Rencontre",
-  title: "3ème Journée d'urgences pédiatriques",
-  description:
-    "Affiche de l'édition 2025 et best-of de la journée SAUP Casablanca.",
-  poster: {
-    src: "/affiche-3eme-journee.png",
-    alt: "Affiche — 3ème Journée d'urgences pédiatriques, 25 octobre 2025",
-    width: 800,
-    height: 1100,
-  },
-  video: {
-    title: "Best of — Journée d'urgences pédiatriques, SAUP Casablanca",
-    caption:
-      "Best of — Journée d'urgences pédiatriques, SAUP Casablanca · Octobre 2023",
-    thumbnail: "/banner-web.jpg",
-    mp4Src: "/best-of-jup.mp4",
-  },
-};
 
 export const BLOG_POSTS: BlogPost[] = [
   {

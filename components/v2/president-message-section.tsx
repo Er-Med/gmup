@@ -8,32 +8,6 @@ import { PRESIDENT_LETTER, PRESIDENT_MESSAGE } from "@/lib/content";
 import { typography } from "@/lib/typography";
 import { cn } from "@/utils/cn";
 
-function MedicalPattern() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full text-gmup-navy/[0.035]"
-      aria-hidden
-    >
-      <defs>
-        <pattern
-          id="v2-president-medical-grid"
-          width="32"
-          height="32"
-          patternUnits="userSpaceOnUse"
-        >
-          <path
-            d="M16 10v12M10 16h12"
-            stroke="currentColor"
-            strokeWidth="0.75"
-            strokeLinecap="round"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#v2-president-medical-grid)" />
-    </svg>
-  );
-}
-
 function PresidentPortrait() {
   return (
     <div className="relative mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none">
@@ -52,7 +26,7 @@ function PresidentPortrait() {
 }
 
 export function V2PresidentMessageSection() {
-  const { president, paragraphs, signoff } = PRESIDENT_LETTER;
+  const { president, paragraphs } = PRESIDENT_LETTER;
 
   return (
     <section
@@ -60,11 +34,9 @@ export function V2PresidentMessageSection() {
       id="president"
       aria-labelledby="president-title"
     >
-      <MedicalPattern />
-
       <Container className="relative">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1.35fr)_minmax(260px,0.65fr)] lg:items-start lg:gap-20 xl:gap-24">
-          <Reveal as="article">
+          <Reveal as="article" className="min-w-0">
             <h2 className={typography.h2} id="president-title">
               {PRESIDENT_MESSAGE.label}
             </h2>
@@ -74,49 +46,22 @@ export function V2PresidentMessageSection() {
               aria-hidden
             />
 
-            <div className="mt-10 flex gap-0 sm:gap-6">
-              <div
-                className="mt-1 hidden w-px shrink-0 self-stretch bg-gmup-teal/50 sm:block"
-                aria-hidden
-              />
-
-              <div className="min-w-0 flex-1">
-                <div
-                  className={cn(
-                    typography.proseStack,
-                    typography.bodyLg,
-                    typography.prose,
-                  )}
-                >
-                  {paragraphs.map((paragraph) => (
-                    <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-                  ))}
-                </div>
-
-                <p
-                  className={cn(
-                    "mt-8 border-l-2 border-gmup-teal/40 pl-5",
-                    typography.quote,
-                    typography.prose,
-                  )}
-                >
-                  {signoff}
+            <div className={cn("mt-10", typography.bodyLg, typography.prose, typography.proseStack)}>
+              {paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-justify">
+                  {paragraph}
                 </p>
-              </div>
+              ))}
             </div>
           </Reveal>
 
-          <aside className="flex flex-col items-center gap-5 lg:sticky lg:top-24 lg:self-start lg:items-start lg:pt-2">
+          <aside className="flex flex-col items-center gap-5 lg:sticky lg:top-40 lg:self-start lg:items-start">
             <PresidentPortrait />
 
-            <div className="relative w-full max-w-[280px] pl-0 text-center lg:max-w-none lg:pl-1 lg:text-left">
-              <div
-                className="absolute top-1 bottom-1 left-0 hidden w-0.5 rounded-full bg-gmup-coral/70 lg:block"
-                aria-hidden
-              />
+            <div className="w-full max-w-[280px] text-center lg:max-w-none lg:text-left">
               <p className={typography.eyebrow}>{president.role}</p>
               <p className={cn("mt-1.5", typography.name)}>{president.name}</p>
-              <p className={cn("mt-2 max-w-xs", typography.small)}>
+              <p className={cn("mt-2 mx-auto max-w-xs lg:mx-0", typography.small)}>
                 {president.note}
               </p>
             </div>

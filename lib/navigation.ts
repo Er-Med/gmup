@@ -35,7 +35,11 @@ export function buildNav(variant: SiteVariant, pathname: string) {
     blog,
     events,
     items: [
-      { label: "Accueil", href: home, current: pathname === home },
+      {
+        label: variant === "v2" ? "Qui sommes-nous ?" : "Accueil",
+        href: home,
+        current: pathname === home,
+      },
       {
         label: "Blog",
         href: blog,

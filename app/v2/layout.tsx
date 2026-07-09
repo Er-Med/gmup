@@ -8,7 +8,7 @@ import { cn } from "@/utils/cn";
 
 export const metadata: Metadata = {
   title: {
-    default: `Accueil | ${SITE.name}`,
+    default: `Qui sommes-nous ? | ${SITE.name}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -18,7 +18,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        "v2-page-bg [--container-max:1180px] font-sans text-body antialiased",
+        "v2-page-bg [--container-max:1180px] [--nav-bg:#1a4a8c] [--nav-text:#ffffff] font-sans text-body antialiased",
         typography.body,
       )}
     >
